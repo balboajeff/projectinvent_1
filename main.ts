@@ -5,9 +5,10 @@ radio.onReceivedNumber(function (receivedNumber) {
     }
 })
 radio.setGroup(1)
+let RoomLight = input.lightLevel()
 basic.forever(function () {
     basic.showNumber(input.lightLevel())
-    if (input.lightLevel() <= 128 && input.buttonIsPressed(Button.A)) {
+    if (RoomLight <= input.lightLevel() - 20 && input.buttonIsPressed(Button.A)) {
         radio.sendNumber(1)
     }
 })
